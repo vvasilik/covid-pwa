@@ -29,5 +29,8 @@ module.exports = {
             template: "./src/index.html",
             filename: "./index.html"
         })
-    ]
+    ],
+    output: {
+        filename: '[name].js'
+    }
 };
