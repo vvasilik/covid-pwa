@@ -5,7 +5,7 @@
   "main": "COVID.js",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html && cp manifest.json dist"
+    "build": "parcel build index.html"
   },
   "keywords": [],
   "author": "",
