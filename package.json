@@ -4,13 +4,13 @@
     "description": "",
     "main": "COVID.js",
     "scripts": {
-        "start": "webpack-dev-server --open --mode development",
+        "start": "webpack-dev-server --mode development",
         "build": "webpack --mode production && cp dist/* ./"
     },
-        "keywords": [],
-        "author": "",
-        "license": "ISC",
-        "dependencies": {
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
         "date-fns": "^2.10.0",
         "react": "^16.13.0",
         "react-dom": "^16.13.0"
@@ -23,6 +23,7 @@
         "css-loader": "^3.4.2",
         "html-loader": "^0.5.5",
         "html-webpack-plugin": "^3.2.0",
+        "parcel-bundler": "^1.12.4",
         "style-loader": "^1.1.3",
         "webpack": "^4.42.0",
         "webpack-cli": "^3.3.11",
