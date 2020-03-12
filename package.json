@@ -5,8 +5,7 @@
   "main": "COVID.js",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html && cp manifest.webmanifest dist",
-    "gh-pages": "cp dist/* ./"
+    "build": "parcel build index.html && cp manifest.webmanifest dist"
   },
   "keywords": [],
   "author": "",
