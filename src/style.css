@@ -3,7 +3,7 @@ body {
 }
 
 .wrapper {
-    padding: 20px;
+    padding: 10px;
 }
 
 table {
@@ -16,7 +16,9 @@ tr {
 }
 
 th {
+    padding: 10px 2px;
     text-align: left;
+    word-break: break-all;
 }
 
 th:hover {
