@@ -15,15 +15,22 @@ tr {
     border-bottom: 1px solid #e2e2e2;
 }
 
+tr:last-child {
+    border: none;
+}
+
 th {
+    position: sticky;
+    top: 0;
     padding: 10px 2px;
     text-align: left;
     word-break: break-all;
+    background-color: #fff;
 }
 
 th:hover {
     cursor: pointer;
-    opacity: .7;
+    color: #969696;
 }
 
 .centered {
