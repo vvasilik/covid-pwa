@@ -2,10 +2,6 @@ body {
     margin: 0;
 }
 
-.wrapper {
-    padding: 10px;
-}
-
 table {
     border-collapse: collapse; 
     width: 100%;
@@ -25,7 +21,21 @@ th {
     padding: 10px 2px;
     text-align: left;
     word-break: break-all;
-    background-color: #fff;
+    background-color: #eee;
+}
+
+td {
+    padding: 5px 0;
+}
+
+td:first-child ,
+th:first-child {
+    padding: 5px 0 5px 10px;
+}
+
+td:last-child,
+th:last-child {
+    padding: 5px 10px 5px 0;
 }
 
 td small {
@@ -40,4 +50,15 @@ th:hover {
 
 .centered {
     text-align: center;
+}
+
+tfoot {
+    font-weight: bold;
+}
+
+tfoot td {
+    position: sticky;
+    bottom: 0;
+    padding: 10px 0 5px;
+    background-color: #eee;
 }

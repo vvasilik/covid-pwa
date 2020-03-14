@@ -36,6 +36,13 @@ export class List extends React.Component {
             const res = a[sortName] < b[sortName];
             return (isReversSort ? res : !res) ? 1 : -1;
         })
+        const total = {
+            country: 'Total',
+            confirmed: sortedStats.reduce((accumulator, currentValue) => accumulator + currentValue.confirmed, 0),
+            deaths: sortedStats.reduce((accumulator, currentValue) => accumulator + currentValue.deaths, 0),
+            recovered: sortedStats.reduce((accumulator, currentValue) => accumulator + currentValue.recovered, 0),
+            actual: sortedStats.reduce((accumulator, currentValue) => accumulator + currentValue.actual, 0),
+        }
 
         return (
             <div className='wrapper'>
@@ -63,6 +70,9 @@ export class List extends React.Component {
                         </tr>
                         {sortedStats.length ? sortedStats.map((stat, index) => (<ListItem stat={stat} key={index} />)) : null}
                     </tbody>
+                    <tfoot>
+                        <ListItem stat={total} />
+                    </tfoot>
                 </table>
             </div>
         );

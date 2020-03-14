@@ -4,19 +4,26 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 export const ListItem = ({stat}) => (
     <tr>
         <td>{stat.country}</td>
-        <td>{formatDistanceToNow(new Date(stat.lastUpdate))}</td>
-        <td className="centered">{stat.confirmed}</td>
-        <td className="centered">{stat.deaths}
+        <td>{stat.lastUpdate ? formatDistanceToNow(new Date(stat.lastUpdate)) : null}</td>
+        <td className="centered">
+            {stat.confirmed}
             <br />
-            {stat.deaths ? <small>{Math.round(100 * stat.deaths / stat.confirmed)}%</small> : ' '}
+            <small>100%</small>
         </td>
-        <td className="centered">{stat.recovered}
+        <td className="centered">
+            {stat.deaths}
             <br />
-            {stat.recovered ? <small>{Math.round(100 * stat.recovered / stat.confirmed)}%</small> : ' '}
+            {<small>{Math.round(100 * stat.deaths / stat.confirmed)}%</small>}
         </td>
-        <td className="centered">{stat.actual}
+        <td className="centered">
+            {stat.recovered}
             <br />
-            {stat.actual ? <small>{Math.round(100 * stat.actual / stat.confirmed)}%</small> : ' '}
+            {<small>{Math.round(100 * stat.recovered / stat.confirmed)}%</small>}
+        </td>
+        <td className="centered">
+            {stat.actual}
+            <br />
+            {<small>{Math.round(100 * stat.actual / stat.confirmed)}%</small>}
         </td>
     </tr>
 )
