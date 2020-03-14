@@ -49,22 +49,40 @@ export class List extends React.Component {
                 <table>
                     <tbody>
                         <tr>
-                            <th className={sortName === SORT_VALUE.COUNTRY ? 'active' : ''} onClick={() => this.changeSortName(SORT_VALUE.COUNTRY)}>
+                            <th
+                                className={sortName === SORT_VALUE.COUNTRY ? 'active' : ''}
+                                onClick={() => this.changeSortName(SORT_VALUE.COUNTRY)}
+                            >
                                 Country {sortName === SORT_VALUE.COUNTRY ? <Icon isReversSort={isReversSort} /> : null}
                             </th>
-                            <th className={sortName === SORT_VALUE.UPDATE ? 'active' : ''} onClick={() => this.changeSortName(SORT_VALUE.UPDATE)}>
+                            <th
+                                className={sortName === SORT_VALUE.UPDATE ? 'active' : ''}
+                                onClick={() => this.changeSortName(SORT_VALUE.UPDATE)}
+                            >
                                 Last update {sortName === SORT_VALUE.UPDATE ? <Icon isReversSort={isReversSort} /> : null}
                             </th>
-                            <th className={sortName === SORT_VALUE.CONFIRMED ? 'active' : ''} onClick={() => this.changeSortName(SORT_VALUE.CONFIRMED)} className="centered">
+                            <th
+                                className={sortName === SORT_VALUE.CONFIRMED ? 'active' : ''}
+                                onClick={() => this.changeSortName(SORT_VALUE.CONFIRMED)} className="centered"
+                            >
                                 Confirmed {sortName === SORT_VALUE.CONFIRMED ? <Icon isReversSort={isReversSort} /> : null}
                             </th>
-                            <th className={sortName === SORT_VALUE.DEATH ? 'active' : ''} onClick={() => this.changeSortName(SORT_VALUE.DEATH)} className="centered">
+                            <th
+                                className={sortName === SORT_VALUE.DEATH ? 'active' : ''}
+                                onClick={() => this.changeSortName(SORT_VALUE.DEATH)} className="centered"
+                            >
                                 Deaths {sortName === SORT_VALUE.DEATH ? <Icon isReversSort={isReversSort} /> : null}
                             </th>
-                            <th className={sortName === SORT_VALUE.RECOVERED ? 'active' : ''} onClick={() => this.changeSortName(SORT_VALUE.RECOVERED)} className="centered">
+                            <th
+                                className={sortName === SORT_VALUE.RECOVERED ? 'active' : ''}
+                                onClick={() => this.changeSortName(SORT_VALUE.RECOVERED)} className="centered"
+                            >
                                 Recovered {sortName === SORT_VALUE.RECOVERED ? <Icon isReversSort={isReversSort} /> : null}
                             </th>
-                            <th className={sortName === SORT_VALUE.ACTUAL ? 'active' : ''} onClick={() => this.changeSortName(SORT_VALUE.ACTUAL)} className="centered">
+                            <th
+                                className={sortName === SORT_VALUE.ACTUAL ? 'active' : ''}
+                                onClick={() => this.changeSortName(SORT_VALUE.ACTUAL)} className="centered"
+                            >
                                 Actual {sortName === SORT_VALUE.ACTUAL ? <Icon isReversSort={isReversSort} /> : null}
                             </th>
                         </tr>
