@@ -22,6 +22,7 @@ export class List extends React.Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
+        this.clearSearch = this.clearSearch.bind(this);
     }
 
     changeSortName(value) {
@@ -33,7 +34,15 @@ export class List extends React.Component {
     }
 
     handleChange(event) {
-        this.setState({searchValue: event.target.value.toLowerCase()});
+        this.setState({
+            searchValue: event.target.value.toLowerCase()
+        });
+    }
+
+    clearSearch() {
+        this.setState({
+            searchValue: ''
+        });
     }
 
     render() {
@@ -54,7 +63,10 @@ export class List extends React.Component {
 
         return (
             <div className='wrapper'>
-                <input className="search__input" type="text" placeholder="Country" value={this.state.value} onChange={this.handleChange} />
+                <div className='search'>
+                    <input className="search__input" type="text" placeholder="Country" value={this.state.searchValue} onChange={this.handleChange} />
+                    <button onClick={this.clearSearch} className="search__clear">✕</button>
+                </div>
                 <table>
                     <tbody>
                         <tr>

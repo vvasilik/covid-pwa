@@ -68,15 +68,39 @@ tfoot td {
     background-color: #eee;
 }
 
+.search {
+    position: relative;
+}
+
 .search__input {
     display: block;
     width: 100%;
     box-sizing: border-box;
     margin: 0;
-    padding: 10px;
+    padding: 10px 41px 10px 10px;
     border: 0;
     border-bottom: 1px solid #000;
     border-radius: 0;
     font-size: 16px;
     line-height: 20px;
+}
+
+.search__clear {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0;
+    width: 41px;
+    height: 41px;
+    font-size: 16px;
+    line-height: 41px;
+    border: 0;
+    background: none;
+}
+
+.search__clear:hover,
+.search__clear:active,
+.search__clear:focus {
+    outline: none;
 }
