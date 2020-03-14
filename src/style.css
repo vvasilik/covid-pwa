@@ -69,14 +69,11 @@ tfoot td {
 }
 
 .search__input {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: calc(100vh - 42px);
+    display: block;
     width: 100%;
     box-sizing: border-box;
     padding: 10px;
-    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
     font-size: 15px;
     line-height: 20px;
 }

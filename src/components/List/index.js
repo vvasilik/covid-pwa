@@ -54,6 +54,7 @@ export class List extends React.Component {
 
         return (
             <div className='wrapper'>
+                <input className="search__input" type="text" placeholder="Country" value={this.state.value} onChange={this.handleChange} />
                 <table>
                     <tbody>
                         <tr>
@@ -100,7 +101,6 @@ export class List extends React.Component {
                         <ListItem stat={total} />
                     </tfoot>
                 </table>
-                <input className="search__input" type="text" placeholder="Country" value={this.state.value} onChange={this.handleChange} />
             </div>
         );
     }
