@@ -43,7 +43,7 @@ export class List extends React.Component {
                     <tbody>
                         <tr>
                             <th onClick={() => this.changeSortName(SORT_VALUE.COUNTRY)}>
-                                Country (Province) {sortName === SORT_VALUE.COUNTRY ? <Icon isReversSort={isReversSort} /> : null}
+                                Country {sortName === SORT_VALUE.COUNTRY ? <Icon isReversSort={isReversSort} /> : null}
                             </th>
                             <th onClick={() => this.changeSortName(SORT_VALUE.UPDATE)}>
                                 Last update {sortName === SORT_VALUE.UPDATE ? <Icon isReversSort={isReversSort} /> : null}
