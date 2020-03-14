@@ -66,6 +66,11 @@ tfoot td {
     background-color: #eee;
 }
 
+tfoot td:first-child,
+tfoot td:last-child {
+    padding-top: 10px;
+}
+
 .search {
     position: relative;
 }
