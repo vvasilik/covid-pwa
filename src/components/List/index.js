@@ -16,9 +16,12 @@ export class List extends React.Component {
         super(props);
         this.state = {
             stats: [],
-            sortName: SORT_VALUE.COUNTRY,
+            searchValue: '',
             isReversSort: false,
+            sortName: SORT_VALUE.COUNTRY,
         };
+
+        this.handleChange = this.handleChange.bind(this);
     }
 
     changeSortName(value) {
@@ -29,8 +32,12 @@ export class List extends React.Component {
         });
     }
 
+    handleChange(event) {
+        this.setState({searchValue: event.target.value});
+    }
+
     render() {
-        const { sortName, isReversSort } = this.state;
+        const { sortName, isReversSort, searchValue } = this.state;
         const { stats } = this.props;
         const sortedStats = stats.sort((a, b) => {
             const res = a[sortName] < b[sortName];
@@ -43,6 +50,7 @@ export class List extends React.Component {
             recovered: sortedStats.reduce((accumulator, currentValue) => accumulator + currentValue.recovered, 0),
             actual: sortedStats.reduce((accumulator, currentValue) => accumulator + currentValue.actual, 0),
         }
+        const resultStats = sortedStats.filter(item => item.country.toLowerCase().indexOf(searchValue) !== -1);
 
         return (
             <div className='wrapper'>
@@ -86,12 +94,13 @@ export class List extends React.Component {
                                 Actual {sortName === SORT_VALUE.ACTUAL ? <Icon isReversSort={isReversSort} /> : null}
                             </th>
                         </tr>
-                        {sortedStats.length ? sortedStats.map((stat, index) => (<ListItem stat={stat} key={index} />)) : null}
+                        {resultStats.length ? resultStats.map((stat, index) => (<ListItem stat={stat} key={index} />)) : null}
                     </tbody>
                     <tfoot>
                         <ListItem stat={total} />
                     </tfoot>
                 </table>
+                <input className="search__input" type="text" placeholder="Country" value={this.state.value} onChange={this.handleChange} />
             </div>
         );
     }
