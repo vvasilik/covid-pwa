@@ -4,7 +4,7 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 export const ListItem = ({stat}) => (
     <tr>
         <td>{stat.country}</td>
-        <td>{stat.lastUpdate ? formatDistanceToNow(new Date(stat.lastUpdate)) : null}</td>
+        <td className="centered">{stat.lastUpdate ? formatDistanceToNow(new Date(stat.lastUpdate)) : null}</td>
         <td className="centered">
             {stat.confirmed}
             <br />
