@@ -4,7 +4,10 @@ import { List } from '../List';
 export class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {stats: []};
+        this.state = {
+            stats: [],
+            cache: null,
+        };
     }
 
     componentDidMount() {
@@ -43,8 +46,14 @@ export class App extends React.Component {
 
             Object.keys(statsObject).forEach(item => statsArray.push({ ...statsObject[item], ...{ country: item }}));
 
+            localStorage.setItem('stats', JSON.stringify(statsArray));
+            localStorage.setItem('cacheDate', new Date());
+
             this.setState({ stats: statsArray });
-        });
+        }).catch(() => this.setState({
+            stats: JSON.parse(localStorage.getItem('stats')) || [],
+            cache: new Date(localStorage.getItem('cacheDate')) || null,
+        }));
     }
 
     getLastUpdate(storedDate, newDate) {
@@ -52,8 +61,8 @@ export class App extends React.Component {
     }
 
     render() {
-        const stats = this.state.stats;
+        const { stats, cache } = this.state;
 
-        return <List stats={stats}/>;
+        return <List stats={stats} cache={cache}/>;
     }
 }

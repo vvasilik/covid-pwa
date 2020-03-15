@@ -1,4 +1,5 @@
 import React from 'react';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import { ListItem } from '../ListItem';
 import { Icon } from '../Icon';
 
@@ -47,7 +48,7 @@ export class List extends React.Component {
 
     render() {
         const { sortName, isReversSort, searchValue } = this.state;
-        const { stats } = this.props;
+        const { stats, cache } = this.props;
         const sortedStats = stats.sort((a, b) => {
             const res = a[sortName] < b[sortName];
             return (isReversSort ? res : !res) ? 1 : -1;
@@ -67,6 +68,7 @@ export class List extends React.Component {
                     <input className="search__input" type="text" placeholder="Country" value={this.state.searchValue} onChange={this.handleChange} />
                     <button onClick={this.clearSearch} className="search__clear">✕</button>
                 </div>
+                {cache && <div className="cache">Loaded from cache. Stored {formatDistanceToNow(cache)} ago</div>}
                 <table>
                     <tbody>
                         <tr>
