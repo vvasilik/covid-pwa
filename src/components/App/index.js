@@ -42,6 +42,10 @@ export class App extends React.Component {
     }
 
     notify(message) {
+        if (typeof Notification !== 'function') {
+            return;
+        }
+
         if (Notification.permission === "granted") {
             new Notification(message);
         } else if (Notification.permission !== 'denied') {
