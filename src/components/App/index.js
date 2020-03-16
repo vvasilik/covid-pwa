@@ -28,7 +28,7 @@ export class App extends React.Component {
             localStorage.setItem('cacheDate', new Date());
 
             this.setState({ stats });
-            this.notify(`Confirmed: ${new Intl.NumberFormat({ useGrouping: 3 }).format(confirmed)}; actual: ${new Intl.NumberFormat({ useGrouping: 3 }).format(actual)}`);
+            this.notify(`Confirmed: ${confirmed}; actual: ${actual}`);
         }).catch(() => {
             const stats = JSON.parse(localStorage.getItem('stats'));
             const cache = localStorage.getItem('cacheDate');
