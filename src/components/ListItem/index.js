@@ -1,7 +1,7 @@
 import React from 'react';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
-export const ListItem = ({stat}) => (
+export const ListItem = ({stat}) => stat.country !== 'undefined' ? (
     <tr>
         <td>{stat.country}</td>
         <td className="centered">{stat.lastUpdate ? formatDistanceToNow(new Date(stat.lastUpdate)) : null}</td>
@@ -26,4 +26,4 @@ export const ListItem = ({stat}) => (
             {<small>{Math.round(100 * stat.actual / stat.confirmed) || 0}%</small>}
         </td>
     </tr>
-)
+) : null;
