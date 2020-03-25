@@ -1,5 +1,4 @@
 import React from 'react';
-import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import { List } from '../List';
 
 export class App extends React.Component {
@@ -37,7 +36,7 @@ export class App extends React.Component {
                 stats: stats || [],
                 cache: cache ? new Date(cache) : null,
             })
-            this.notify(cache ? `Cached data. Stored ${formatDistanceToNow(new Date(cache))} ago` : `No response. Cache is empty`);
+            this.notify(cache ? `Cached data. Stored ${cache}` : `No response. Cache is empty`);
         });
     }
 
@@ -69,7 +68,6 @@ export class App extends React.Component {
                     confirmed: statsObject[item.country].confirmed + item.confirmed,
                     deaths: statsObject[item.country].deaths + item.deaths,
                     recovered: statsObject[item.country].recovered + item.recovered,
-                    lastUpdate: this.getLastUpdate(statsObject[item.country].lastUpdate, item.lastUpdate),
                     actual: statsObject[item.country].actual + item.confirmed - item.deaths - item.recovered,
                 }
             } else {
@@ -77,7 +75,6 @@ export class App extends React.Component {
                     confirmed: item.confirmed,
                     deaths: item.deaths,
                     recovered: item.recovered,
-                    lastUpdate: item.lastUpdate,
                     actual: item.confirmed - item.deaths - item.recovered,
                 }
             }
@@ -86,10 +83,6 @@ export class App extends React.Component {
         Object.keys(statsObject).forEach(item => statsArray.push({ ...statsObject[item], ...{ country: item }}));
 
         return statsArray;
-    }
-
-    getLastUpdate(storedDate, newDate) {
-        return new Date(storedDate) < new Date(newDate) ? newDate : storedDate;
     }
 
     render() {

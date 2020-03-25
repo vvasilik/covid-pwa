@@ -1,11 +1,9 @@
 import React from 'react';
-import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import { ListItem } from '../ListItem';
 import { Icon } from '../Icon';
 
 export const SORT_VALUE = {
     COUNTRY: 'country',
-    UPDATE: 'lastUpdate',
     CONFIRMED: 'confirmed',
     DEATH: 'deaths',
     RECOVERED: 'recovered',
@@ -68,7 +66,7 @@ export class List extends React.Component {
                     <input className="search__input" type="text" placeholder="Country" value={this.state.searchValue} onChange={this.handleChange} />
                     <button onClick={this.clearSearch} className="search__clear">✕</button>
                 </div>
-                {cache && <div className="cache">Loaded from cache. Stored {formatDistanceToNow(cache)} ago</div>}
+                {cache && <div className="cache">Loaded from cache. Stored {cache}</div>}
                 <table>
                     <tbody>
                         <tr>
@@ -77,12 +75,6 @@ export class List extends React.Component {
                                 onClick={() => this.changeSortName(SORT_VALUE.COUNTRY)}
                             >
                                 Country {sortName === SORT_VALUE.COUNTRY ? <Icon isReversSort={isReversSort} /> : null}
-                            </th>
-                            <th
-                                className={sortName === SORT_VALUE.UPDATE ? 'active' : ''}
-                                onClick={() => this.changeSortName(SORT_VALUE.UPDATE)}
-                            >
-                                Last update {sortName === SORT_VALUE.UPDATE ? <Icon isReversSort={isReversSort} /> : null}
                             </th>
                             <th
                                 className={sortName === SORT_VALUE.CONFIRMED ? 'active' : ''}
